@@ -8,3 +8,11 @@ void setup() {
 void draw() {
   background(0, 100, 200);
 }
+
+void keyPressed() {
+  keys.keyPressed();
+}
+
+void keyReleased() {
+  keys.keyReleased();
+}
