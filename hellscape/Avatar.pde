@@ -39,8 +39,11 @@ class Avatar {
     Iterator<Bullet> i = pattern.bullets.iterator();
     while (i.hasNext()) {
       Bullet bullet = i.next();
-      if (dist(bullet.x, bullet.y, x, y)<bullet.r+r) {
-        i.remove();
+      if (bullet.exist) {
+        if (dist(bullet.x, bullet.y, x, y)<bullet.r+r) {
+          println("DIEDEDED");
+          i.remove();
+        }
       }
     }
   }
