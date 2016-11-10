@@ -1,7 +1,10 @@
+import java.util.Iterator;
+
 class Avatar {
   float x;
   float y;
   float speed;
+  int r = 10;
 
   Avatar(float x_, float y_, float speed_) {
     x = x_;
@@ -28,9 +31,21 @@ class Avatar {
     if (keys.left) {
       x -= speed;
     }
+    
+    collision();
+  }
+  
+  void collision() {
+    Iterator<Bullet> i = pattern.bullets.iterator();
+    while (i.hasNext()) {
+      Bullet bullet = i.next();
+      if (dist(bullet.x, bullet.y, x, y)<bullet.r+r) {
+        i.remove();
+      }
+    }
   }
 
   void display() {
-    ellipse(x, y, 10, 10);
+    ellipse(x, y, r, r);
   }
 }

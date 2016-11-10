@@ -12,6 +12,7 @@ class Bullet {
     speedx = speedx_;
     speedy = speedy_;
   }
+  
   Bullet(float x_, float y_, float speedx_, float speedy_) {
     x = x_;
     y = y_;
