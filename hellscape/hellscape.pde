@@ -5,16 +5,18 @@ Avatar avatar;
 PFont titleFont;
 
 void setup() {
-  size(720, 720);  
+  size(720, 720);
   colorMode(HSB);
   ellipseMode(RADIUS);
   
   titleFont = createFont("orangejuice.tff", 32);
   
-  avatar = new Avatar(10);
+  avatar = new Avatar(3.2);
   
   pattern = new Pattern();
-  pattern.generate(width/2, 0, Pattern.semiCircle, 5);
+  pattern.generate(width/2, 0, Pattern.semiCircleDown, 3, 0, 20);
+  pattern.generate(width/2, height, Pattern.semiCircleUp, 3, 1000, 30);
+
 }
 
 void draw() {
