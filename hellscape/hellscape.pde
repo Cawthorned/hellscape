@@ -1,15 +1,20 @@
 Pattern pattern;
 Keys keys = new Keys();
 Avatar avatar;
-
+Screen screen;
 PFont titleFont;
+PFont textFont;
 
 void setup() {
   size(720, 720);
+  //fullScreen();
   colorMode(HSB);
   ellipseMode(RADIUS);
   
-  titleFont = createFont("orangejuice.tff", 32);
+  titleFont = createFont("orangejuice.ttf", height/5.5);
+  textFont = createFont("orangejuice.ttf", height/20);
+  
+  screen = new Screen(screen.start);
   
   avatar = new Avatar(3.2);
   
@@ -32,6 +37,8 @@ void draw() {
 
   pattern.tick();
   pattern.display();
+  
+  screen.display();
 }
 
 void keyPressed() {
