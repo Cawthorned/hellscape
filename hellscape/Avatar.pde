@@ -84,4 +84,9 @@ class Avatar {
     fill(col);
     ellipse(x, y, r, r);
   }
+  
+  void reset() {
+    x = width/2;
+    y = width/2;
+  }
 }
