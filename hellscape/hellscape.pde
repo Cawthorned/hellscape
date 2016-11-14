@@ -29,7 +29,7 @@ void draw() {
   background(0, 100, 200);
   avatar.tick();
   avatar.display();
-  
+
   pattern.tick();
   pattern.display();
 }
