@@ -3,6 +3,7 @@ class Keys {
   boolean right;
   boolean down;
   boolean left;
+  boolean ok;
   
   void change(boolean pressed) {
     if (keyCode == UP) {
@@ -13,6 +14,8 @@ class Keys {
       down = pressed;
     } else if (keyCode == LEFT) {
       left = pressed;
+    } else if (key == ' ') {
+      ok = pressed; 
     }
   }
   
