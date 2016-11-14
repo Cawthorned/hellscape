@@ -79,12 +79,19 @@ class Screen {
       if (counter >= 150) {
         counter = 150;
       }
-      fill(0, counter, 0, counter);
+      avatar.reset();
+      fill(0, counter, counter);
       rect(0, 0, width, height);
-      fill(#FFFFFF);
+      fill(0);
       textFont(titleFont);
-      text("Game over", width/2, height/4);
-      rect(width/2-width/5, height/2+height/10, width/2.5, 2*height/10);
+      text("Game over", width/2, height/7);
+      textFont(textFont);
+      text("The poor little droplet evaporated, \ntogether with its hopes and dreams.",width/2,height/3-height/15);
+      noFill();
+      stroke(0);
+      strokeWeight(5);
+      rect(width/2-width/5, height/2-height/12, width/2.5, height/6);
+      rect(width/2-width/5, height/2+height/6, width/2.5, height/6);
     }
   }
 }
