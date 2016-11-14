@@ -4,7 +4,7 @@ class Avatar {
   float x;
   float y;
   float speed;
-  int r = 10;
+  int r = 5;
   int lastDeath = -1000;
   int invTime = 1000;
   color col;
