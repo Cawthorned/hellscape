@@ -1,6 +1,7 @@
 class Pattern {
   final static int circle = 0;
-  final static int max = 0;
+  final static int circleC = 1;
+  final static int max = 1;
   
   ArrayList<Bullet> bullets;
   
@@ -12,6 +13,11 @@ class Pattern {
     float w = wait;
     if (type == circle) {
       for (float angle = 0; angle <= TAU; angle += TAU/spread) {
+        bullets.add(new Bullet(x, y, cos(angle)*speed, sin(angle)*speed, w));
+        w += singleWait;
+      }
+    } else if (type == circleC) {
+      for (float angle = TAU; angle >= 0; angle -= TAU/spread) {
         bullets.add(new Bullet(x, y, cos(angle)*speed, sin(angle)*speed, w));
         w += singleWait;
       }
