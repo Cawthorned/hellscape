@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 class Avatar {
   float x;
   float y;

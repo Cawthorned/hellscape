@@ -1,7 +1,10 @@
-Level level;
-Keys keys = new Keys();
-Avatar avatar;
+import java.util.Iterator;
+
+Keys keys;
 Screen screen;
+Avatar avatar;
+Level level;
+
 PFont titleFont;
 PFont textFont;
 
@@ -13,29 +16,28 @@ void setup() {
 
   titleFont = createFont("orangejuice.ttf", height/5.5);
   textFont = createFont("orangejuice.ttf", height/20);
-  
+
+  keys = new Keys();
+
   screen = new Screen(screen.start);
-  
+
   avatar = new Avatar(3.2);
-  
+
   level = new Level();
-  level.start(-1);
-  
-  
-  println();
 }
 
 void draw() {
   surface.setTitle(String.format("Hellscape %.3f fps", frameRate));
-  
-  //background(0, 100, 200);
+
+  background(0, 100, 200);
+
+  screen.display();
+
   avatar.tick();
   avatar.display();
 
   level.tick();
   level.display();
-  
-  screen.display();
 }
 
 void keyPressed() {
