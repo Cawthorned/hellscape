@@ -17,7 +17,7 @@ class Bullet {
     wait = wait_;
     start = millis();
   }
-  
+
   Bullet(float x_, float y_, float speedx_, float speedy_, float wait_) {
     x = x_;
     y = y_;
@@ -32,7 +32,7 @@ class Bullet {
     if (millis() > start + wait) {
       exist = true;
     }
-    
+
     if (exist) {
       x = x + speedx;
       y = y + speedy;
@@ -44,5 +44,9 @@ class Bullet {
       fill(255);
       ellipse(x, y, r, r);
     }
+  }
+
+  boolean shouldDie() {
+    return (((x - r <= -100) || (x + r >= width+100) || (y - r <= -100) || (y +r >= height+100)) && exist);
   }
 }
