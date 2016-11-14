@@ -50,7 +50,7 @@ class Avatar {
   }
   
   void collision() {
-    Iterator<Bullet> i = pattern.bullets.iterator();
+    Iterator<Bullet> i = level.pattern.bullets.iterator();
     while (i.hasNext()) {
       Bullet bullet = i.next();
       if (bullet.exist) {

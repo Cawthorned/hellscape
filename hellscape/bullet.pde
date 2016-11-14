@@ -5,7 +5,6 @@ class Bullet {
   float speedx;
   float speedy;
   float wait;
-  float start;
   boolean exist = false;
 
   Bullet(float x_, float y_, float speedx_, float speedy_, float wait_, float r_) {
@@ -15,7 +14,6 @@ class Bullet {
     speedx = speedx_;
     speedy = speedy_;
     wait = wait_;
-    start = millis();
   }
 
   Bullet(float x_, float y_, float speedx_, float speedy_, float wait_) {
@@ -25,11 +23,10 @@ class Bullet {
     speedx = speedx_;
     speedy = speedy_;
     wait = wait_;
-    start = millis();
   }
 
   void tick() {
-    if (millis() > start + wait) {
+    if (millis() > wait) {
       exist = true;
     }
 
