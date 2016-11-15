@@ -83,7 +83,7 @@ class Avatar {
   void reset() {
     x = width/2;
     y = width/2;
-    lives = 2;
+    lives = 10;
   }
 
   void die() {

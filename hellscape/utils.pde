@@ -1,6 +1,6 @@
 void heart(float x, float y, boolean half) {
   pushMatrix();
-  float s = (height+width)/600;
+  float s = (height+width)/750;
   translate(x-50*s, y-20*s);
   beginShape();
   if (!half) {

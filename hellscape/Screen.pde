@@ -33,7 +33,14 @@ class Screen {
         text("score "+level.score, width/28, height-height/20);
         textAlign(CENTER, CENTER);
         
-        
+        for (int i = 0; i<=(avatar.lives-1)/2; i++) {
+          boolean half = false;
+          println(avatar.lives, i, i==avatar.lives/2);
+          if (i == (avatar.lives-1)/2) {
+            half = (avatar.lives-1) % 2 == 0;
+          }
+          heart(width-(width/20*((10/2)))+(width/20*i), height-height/20, half);
+        }
       }
     }
 
