@@ -94,6 +94,8 @@ class Avatar {
       level.stop();
       reset();
       screen.change(Screen.gameover);
+    } else {
+      sound.drip();
     }
   }
 }

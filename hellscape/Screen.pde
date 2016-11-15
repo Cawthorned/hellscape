@@ -70,6 +70,7 @@ class Screen {
         fill(ranCol, 200, 200, 100);
         rect(5*width/9, height-height/6, width/3, height/7);
         if (keys.ok) {
+          sound.play(-99);
           colorMode((int)random(0, 2)==0 ? 1 : 3);
           delay(200);
         }

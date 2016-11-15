@@ -1,5 +1,6 @@
 import java.util.Iterator;
-import processing.sound.*;
+import ddf.minim.*;
+import ddf.minim.ugens.*;
 
 Keys keys;
 Sound sound;
