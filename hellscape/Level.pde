@@ -41,7 +41,7 @@ class Level {
   }
   
   void genRandom() {
-    int type = floor(random(0, Pattern.max));
+    int type = floor(random(0, Pattern.max+1));
     int x = width/2;
     int y = height/2;
     while ((x == y) && ((x==width/2)||(y==height/2))) {
