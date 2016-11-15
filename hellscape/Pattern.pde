@@ -3,13 +3,13 @@ class Pattern {
   final static int circleC = 1;
   final static int wall = 2;
   final static int max = 2;
-  
+
   ArrayList<Bullet> bullets;
-  
+
   Pattern() {
     bullets = new ArrayList<Bullet>();
   }
-  
+
   void generate(int x, int y, int type, int speed, int wait, int spread, int singleWait) {
     float w = wait;
     if (type == circle) {
@@ -22,25 +22,26 @@ class Pattern {
         bullets.add(new Bullet(x, y, cos(angle)*speed, sin(angle)*speed, w));
         w += singleWait;
       }
-    }
-    else if (type == wall){
-      if (y == height/2 && x == 0){
+    } else if (type == wall) {
+      if (y == height/2 && x == 0) {
         y = 0;
       }
-      if (y == height/2 && x == width){
+      if (y == height/2 && x == width) {
         y = height;
       }
-        for (int c = -width; c <= width; c+=(width/spread*3)){
-          bullets.add(new Bullet(x+c, y, 0, speed, w));
-          w+= singleWait;
-        }
-        for (int c = -width; c <= width; c+=(width/spread*3)){
-          bullets.add(new Bullet(x+c, y, 0, -speed, w));
-          w+= singleWait;
-        }
+      w = w + (width*2)/(width/spread*3)*singleWait;
+      singleWait = -singleWait;
+      for (int c = -width; c <= width; c+=(width/spread*3)) {
+        bullets.add(new Bullet(x+c, y, 0, speed, w));
+        w+= singleWait;
       }
+      for (int c = -width; c <= width; c+=(width/spread*3)) {
+        bullets.add(new Bullet(x+c, y, 0, -speed, w));
+        w+= singleWait;
+      }
+    }
   }
-  
+
   void tick() {
     Iterator<Bullet> i = bullets.iterator();
     while (i.hasNext()) {
@@ -52,14 +53,14 @@ class Pattern {
       }
     }
   }
-  
+
   void display() {
     for (Bullet bullet : bullets) {
       bullet.display();
     }
   }
-  
+
   void clear() {
-    bullets.clear();    
+    bullets.clear();
   }
 }
