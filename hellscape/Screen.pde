@@ -129,7 +129,9 @@ class Screen {
         if (keys.ok){
           avatar.reset();
           current = start;
-          sound.play(0);
+          if (!mystery) {
+            sound.play(0);
+          }
         }
       }
       fill(0);
