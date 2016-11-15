@@ -30,8 +30,8 @@ class Level {
         genRandom();
         randomTimer *= 0.999;
         lastRandom = millis();
-        score = millis() - startTime;
       }
+      score = millis() - startTime;
     }
     pattern.tick();
   }
