@@ -85,7 +85,7 @@ class Screen {
       }
       fill(0, counter, counter);
       rect(0, 0, width, height);
-      fill(255, 100);
+      fill(255, counter);
       if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2-height/24 && avatar.y < height/2-height/24+height/6) {
         rect(width/2-width/5, height/2-height/24, width/2.5, height/6);
         if (keys.ok) {
