@@ -7,19 +7,13 @@ class Avatar {
   int invTime = 1000;
   color col;
   color baseCol;
+  int lives;
 
-  Avatar(float x_, float y_, float speed_) {
-    x = x_;
-    y = y_;
-    speed = speed_;
-    col = color(255, 255, 255, 255);
-    baseCol = col;
-  }
-  
   Avatar(float speed_) {
-    x = width/2;
-    y = height/2;
     speed = speed_;
+    reset();
+    col = color(170, 200, 200);
+    baseCol = col;
   }
 
   void tick() {
@@ -35,19 +29,20 @@ class Avatar {
     if (keys.left) {
       x -= speed;
     }
-    
+
     collision();
-    
+
     if (millis() < lastDeath + invTime) {
-      col = color(col, 20);
+      col = color(baseCol, (frameCount % 5)*50);
     } else {
       col = baseCol;
     }
-    
+
     checkBounds();
   }
-  
+
   void collision() {
+    boolean shouldDie = false;
     Iterator<Bullet> i = level.pattern.bullets.iterator();
     while (i.hasNext()) {
       Bullet bullet = i.next();
@@ -55,13 +50,15 @@ class Avatar {
         if (dist(bullet.x, bullet.y, x, y)<bullet.r+r) {
           if (millis() >= lastDeath + invTime) {
             i.remove();
-            lastDeath = millis();
+            shouldDie = true;
           }
         }
       }
     }
+    if (shouldDie)
+      die();
   }
-  
+
   void checkBounds() {
     if (x - r <= 0) {
       x = r;
@@ -82,9 +79,21 @@ class Avatar {
     fill(col);
     ellipse(x, y, r, r);
   }
-  
+
   void reset() {
     x = width/2;
     y = width/2;
+    lives = 2;
+  }
+
+  void die() {
+    println(lives);
+    lives--;
+    lastDeath = millis();
+    if (lives <= 0) {
+      level.stop();
+      reset();
+      screen.change(Screen.gameover);
+    }
   }
 }

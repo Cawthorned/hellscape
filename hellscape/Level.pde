@@ -1,7 +1,8 @@
 class Level {
   Pattern pattern;
-  int randomTimer = 1000;
+  float randomTimer = 1000;
   int lastRandom = -1;
+  int score;
   
   Level() {
     pattern = new Pattern();
@@ -18,13 +19,14 @@ class Level {
     pattern.clear();
     randomTimer = -1;
     randomTimer = 1000;
+    lastRandom = -1;
   }
   
   void tick() {
     if (lastRandom != -1) {
-      if (millis() - lastRandom >= randomTimer) {
+      if ((float)millis() - lastRandom >= randomTimer) {
         genRandom();
-        randomTimer *= 0.99;
+        randomTimer *= 0.999;
         lastRandom = millis();
       }
     }
