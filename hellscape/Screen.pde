@@ -6,6 +6,7 @@ class Screen {
   int counter = 0;
   float ranCol = 0;
   int currentLevel = 0;
+  boolean mystery = false;
 
   Screen(int current_) {
     change(current_);
@@ -81,8 +82,9 @@ class Screen {
         fill(ranCol, 200, 200, 100);
         rect(5*width/9, height-height/6, width/3, height/7);
         if (keys.ok) {
-          sound.play(-99);
-          colorMode((int)random(0, 2)==0 ? 1 : 3);
+          mystery = !mystery;
+          sound.play(mystery ? -99 : 0);
+          colorMode(mystery ? 1 : 3);
           delay(200);
         }
         ranCol++;

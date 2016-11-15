@@ -34,12 +34,7 @@ class Sound {
   }
   
   void play(int l) {
-    if ((l == -99) && (playing == -99)) {
-      l = 0;
-      mystery.pause();
-    }
     if ((playing != -99) || (l == 0)) {
-      
       playing = l;
       stop();
       if (l == 0) {
@@ -61,11 +56,15 @@ class Sound {
   void stop() {
     main.pause();
     easy.pause();
+    easy.rewind();
     hard.pause();
+    hard.rewind();
     for (int i=0; i<=rand.length-1; i++) {
       rand[i].pause();
+      rand[i].rewind();
     }
     gameover.pause();
+    mystery.pause();
   }
   
   void drip() {
