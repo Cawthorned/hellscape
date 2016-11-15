@@ -19,7 +19,7 @@ void setup() {
 
   keys = new Keys();
 
-  screen = new Screen(screen.gameover);
+  screen = new Screen(Screen.start);
 
   avatar = new Avatar(3.2);
 
