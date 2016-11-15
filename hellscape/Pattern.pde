@@ -3,7 +3,7 @@ class Pattern {
   final static int circleC = 1;
   final static int wall = 2;
   final static int wallC = 3;
-  final static int max = 2;
+  final static int max = 3;
 
   ArrayList<Bullet> bullets;
 
