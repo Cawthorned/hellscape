@@ -2,6 +2,7 @@ class Pattern {
   final static int circle = 0;
   final static int circleC = 1;
   final static int wall = 2;
+  final static int wallC = 3;
   final static int max = 2;
 
   ArrayList<Bullet> bullets;
@@ -31,6 +32,16 @@ class Pattern {
       }
       w = w + (width*2)/(width/spread*3)*singleWait;
       singleWait = -singleWait;
+      for (int c = -width; c <= width; c+=(width/spread*3)) {
+        bullets.add(new Bullet(x+c, y, 0, speed, w));
+        w+= singleWait;
+      }
+      for (int c = -width; c <= width; c+=(width/spread*3)) {
+        bullets.add(new Bullet(x+c, y, 0, -speed, w));
+        w+= singleWait;
+      }
+    }
+    else if (type == wallC){
       for (int c = -width; c <= width; c+=(width/spread*3)) {
         bullets.add(new Bullet(x+c, y, 0, speed, w));
         w+= singleWait;
