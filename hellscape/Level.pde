@@ -3,12 +3,14 @@ class Level {
   float randomTimer = 1000;
   int lastRandom = -1;
   int score;
+  int startTime = 0;
   
   Level() {
     pattern = new Pattern();
   }
 
   void start(int diff) {
+    startTime = millis();
     if (diff == -1) { // Random
       genRandom();
       lastRandom = millis();
@@ -28,6 +30,7 @@ class Level {
         genRandom();
         randomTimer *= 0.999;
         lastRandom = millis();
+        score = millis() - startTime;
       }
     }
     pattern.tick();
