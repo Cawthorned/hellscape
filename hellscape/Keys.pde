@@ -14,8 +14,8 @@ class Keys {
       down = pressed;
     } else if (keyCode == LEFT) {
       left = pressed;
-    } else if (key == ' ') {
-      ok = pressed; 
+    } else if (key == ' ' || keyCode == RETURN || keyCode == ENTER) {
+      ok = pressed;
     }
   }
   

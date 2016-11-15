@@ -1,6 +1,8 @@
 import java.util.Iterator;
+import processing.sound.*;
 
 Keys keys;
+Sound sound;
 Screen screen;
 Avatar avatar;
 Level level;
@@ -18,6 +20,8 @@ void setup() {
   textFont = createFont("orangejuice.ttf", height/20);
 
   keys = new Keys();
+  
+  sound = new Sound(this);
 
   screen = new Screen(Screen.start);
 

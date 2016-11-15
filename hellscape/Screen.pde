@@ -8,11 +8,14 @@ class Screen {
   int currentLevel = 0;
 
   Screen(int current_) {
-    current = current_;
+    change(current_);
   }
 
   void change(int current_) {
     current = current_;
+    if (current==0) {
+      sound.play(0);
+    }
   }
 
   void display() {
@@ -40,6 +43,7 @@ class Screen {
           level.start(1);
           currentLevel = 1;
           current = ingame;
+          sound.play(1);
         }
         //top right
       } else if (avatar.x > 5*width/9 && avatar.x < 5*width/9+width/3 && avatar.y > height-height/3-height/20 && avatar.y < (height-height/3-height/20)+height/7) {
@@ -49,6 +53,7 @@ class Screen {
           level.start(2);
           currentLevel = 2;
           current = ingame;
+          sound.play(2);
         }
         //bottom left
       } else if (avatar.x > width/9 && avatar.x < width/9+width/3 && avatar.y >height-height/6 && avatar.y < height-height/6+height/7) {
@@ -58,6 +63,7 @@ class Screen {
           level.start(-1);
           currentLevel = -1;
           current = ingame;
+          sound.play(-1);
         }
         //bottom right
       } else if (avatar.x > 5*width/9 && avatar.x < 5*width/9+width/3 && avatar.y >height-height/6 && avatar.y < height-height/6+height/7) {
@@ -108,6 +114,7 @@ class Screen {
         if (keys.ok){
           avatar.reset();
           current = start;
+          sound.play(0);
         }
       }
       fill(0);
