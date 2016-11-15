@@ -1,7 +1,7 @@
 class Screen {
   final static int start = 0;
   final static int gameover = 1;
-  final static int hide = -1;
+  final static int ingame = -1;
   int current = 0;
   int counter = 0;
   float ranCol = 0;
@@ -20,6 +20,15 @@ class Screen {
     if (ranCol >= 255) {
       ranCol = 0;
     }
+    
+    if (current == ingame){
+      if (currentLevel == -1){
+        fill(0);
+        textAlign(LEFT, CENTER);
+        text("score "+level.score, width/20, height/20);
+        textAlign(CENTER, CENTER);
+      }
+    }
 
     if (current == start) {
       fill(255, 100);
@@ -30,7 +39,7 @@ class Screen {
           avatar.reset();
           level.start(1);
           currentLevel = 1;
-          current = hide;
+          current = ingame;
         }
         //top right
       } else if (avatar.x > 5*width/9 && avatar.x < 5*width/9+width/3 && avatar.y > height-height/3-height/20 && avatar.y < (height-height/3-height/20)+height/7) {
@@ -39,7 +48,7 @@ class Screen {
           avatar.reset();
           level.start(2);
           currentLevel = 2;
-          current = hide;
+          current = ingame;
         }
         //bottom left
       } else if (avatar.x > width/9 && avatar.x < width/9+width/3 && avatar.y >height-height/6 && avatar.y < height-height/6+height/7) {
@@ -48,7 +57,7 @@ class Screen {
           avatar.reset();
           level.start(-1);
           currentLevel = -1;
-          current = hide;
+          current = ingame;
         }
         //bottom right
       } else if (avatar.x > 5*width/9 && avatar.x < 5*width/9+width/3 && avatar.y >height-height/6 && avatar.y < height-height/6+height/7) {
@@ -89,13 +98,15 @@ class Screen {
       if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2-height/24 && avatar.y < height/2-height/24+height/6) {
         rect(width/2-width/5, height/2-height/24, width/2.5, height/6);
         if (keys.ok) {
+          avatar.reset();
           level.start(currentLevel);
-          current = hide;
+          current = ingame;
         }
       }
       if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2+height/5 && avatar.y < height/2+height/5+height/6){
         rect(width/2-width/5, height/2+height/5, width/2.5, height/6);
         if (keys.ok){
+          avatar.reset();
           current = start;
         }
       }
@@ -104,8 +115,8 @@ class Screen {
       text("Game over", width/2, height/7);
       textFont(textFont);
       text("The poor little droplet evaporated, \ntogether with its hopes and dreams.", width/2, height/3-height/24);
-      text("Your score was: "+368680, width/2, height/3+height/18);
-      text("highscore is: " +124836, width/2, height-height/15);
+      text("your score was: "+level.score, width/2, height/3+height/18);
+      text("current highscore is: " +124836, width/2, height-height/15);
       text("try again", width/2-width/5, height/2-height/24, width/2.5, height/6);
       text("return to menu", width/2-width/5, height/2+height/5, width/2.5, height/6);
       noFill();

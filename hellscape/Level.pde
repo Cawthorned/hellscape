@@ -2,7 +2,7 @@ class Level {
   Pattern pattern;
   float randomTimer = 1000;
   int lastRandom = -1;
-  int score;
+  int score = 0;
   
   Level() {
     pattern = new Pattern();
