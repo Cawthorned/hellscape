@@ -1,6 +1,7 @@
 class Screen {
   final static int start = 0;
   final static int gameover = 1;
+  final static int victory = 2;
   final static int ingame = -1;
   int current = 0;
   int counter = 0;
@@ -25,6 +26,43 @@ class Screen {
     textAlign(CENTER, CENTER);
     if (ranCol >= 255) {
       ranCol = 0;
+    }
+    
+    if (current == victory){
+      fill(255,100);
+      if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2-height/24+height/10 && avatar.y < height/2-height/24+height/6+height/10) {
+        rect(width/2-width/5, height/2-height/24+height/10, width/2.5, height/6);
+        if (keys.ok) {
+          avatar.reset();
+          level.start(currentLevel);
+          sound.play(currentLevel);
+          current = ingame;
+        }
+      }
+      if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2+height/5+height/10 && avatar.y < height/2+height/5+height/6+height/10) {
+        rect(width/2-width/5, height/2+height/5+height/10, width/2.5, height/6);
+        if (keys.ok) {
+          avatar.reset();
+          current = start;
+          if (!mystery) {
+            sound.play(0);
+          }
+        }
+      }
+      fill(0);
+      textAlign(CENTER,CENTER);
+      textFont(titleFont);
+      text("Level", width/2, height/5-height/9);
+      text("complete!!!", width/2, height/5+height/24);
+      textFont(textFont);
+      text("The little droplet survived the hellscape,\nand lived happily ever after.\nFor now.", width/2, height/3+height/10);
+      text("one more time!", width/2-width/5, height/2-height/24+height/10, width/2.5, height/6);
+      text("return to menu", width/2-width/5, height/2+height/5+height/10, width/2.5, height/6);
+      noFill();
+      stroke(0);
+      strokeWeight(5);
+      rect(width/2-width/5, height/2-height/24+height/10, width/2.5, height/6);
+      rect(width/2-width/5, height/2+height/5+height/10, width/2.5, height/6);
     }
 
     if (current == ingame) {
