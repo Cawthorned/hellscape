@@ -32,6 +32,8 @@ class Screen {
         textAlign(LEFT, CENTER);
         text("score "+level.score, width/28, height-height/20);
         textAlign(CENTER, CENTER);
+        
+        
       }
     }
 

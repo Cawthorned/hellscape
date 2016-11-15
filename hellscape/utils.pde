@@ -1,14 +1,14 @@
-void star(float x, float y, float radius1, float radius2, int npoints) {
-  float angle = TWO_PI / npoints;
-  float halfAngle = angle/2.0;
+void heart(float x, float y, boolean half) {
+  pushMatrix();
+  float s = (height+width)/600;
+  translate(x-50*s, y-20*s);
   beginShape();
-  for (float a = 0; a < TWO_PI; a += angle) {
-    float sx = x + cos(a) * radius2;
-    float sy = y + sin(a) * radius2;
-    vertex(sx, sy);
-    sx = x + cos(a+halfAngle) * radius1;
-    sy = y + sin(a+halfAngle) * radius1;
-    vertex(sx, sy);
+  if (!half) {
+    vertex(50*s, 15*s);
+    bezierVertex(50*s, -5*s, 90*s, 5*s, 50*s, 40*s); // Right
   }
-  endShape(CLOSE);
+  vertex(50*s, 15*s);
+  bezierVertex(50*s, -5*s, 10*s, 5*s, 50*s, 40*s); // Left
+  endShape();
+  popMatrix();
 }
