@@ -26,23 +26,22 @@ class Screen {
     if (ranCol >= 255) {
       ranCol = 0;
     }
-    
-    if (current == ingame){
-      if (currentLevel == -1){
+
+    if (current == ingame) {
+      if (currentLevel == -1) {
         fill(0);
         textAlign(LEFT, CENTER);
         text("score "+level.score, width/28, height-height/20);
         textAlign(CENTER, CENTER);
-        
-        fill(170-10, 200, 200, 200);
-        for (int i = 0; i<=(avatar.lives-1)/2; i++) {
-          boolean half = false;
-          println(avatar.lives, i, i==avatar.lives/2);
-          if (i == (avatar.lives-1)/2) {
-            half = (avatar.lives-1) % 2 == 0;
-          }
-          heart(width-(width/20*((10/2)))+(width/20*i), height-height/20, half);
+      }
+      fill(170-10, 200, 200, 200);
+      for (int i = 0; i<=(avatar.lives-1)/2; i++) {
+        boolean half = false;
+        println(avatar.lives, i, i==avatar.lives/2);
+        if (i == (avatar.lives-1)/2) {
+          half = (avatar.lives-1) % 2 == 0;
         }
+        heart(width-(width/20*((10/2)))+(width/20*i), height-height/20, half);
       }
     }
 
@@ -125,9 +124,9 @@ class Screen {
           current = ingame;
         }
       }
-      if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2+height/5 && avatar.y < height/2+height/5+height/6){
+      if (avatar.x > width/2-width/5 && avatar.x < width/2-width/5+width/2.5 && avatar.y > height/2+height/5 && avatar.y < height/2+height/5+height/6) {
         rect(width/2-width/5, height/2+height/5, width/2.5, height/6);
-        if (keys.ok){
+        if (keys.ok) {
           avatar.reset();
           current = start;
           if (!mystery) {
