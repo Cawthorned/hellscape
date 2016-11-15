@@ -34,6 +34,7 @@ class Screen {
         text("score "+level.score, width/28, height-height/20);
         textAlign(CENTER, CENTER);
         
+        fill(170-10, 200, 200, 200);
         for (int i = 0; i<=(avatar.lives-1)/2; i++) {
           boolean half = false;
           println(avatar.lives, i, i==avatar.lives/2);
@@ -129,7 +130,9 @@ class Screen {
         if (keys.ok){
           avatar.reset();
           current = start;
-          sound.play(0);
+          if (!mystery) {
+            sound.play(0);
+          }
         }
       }
       fill(0);
