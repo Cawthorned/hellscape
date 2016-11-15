@@ -3,7 +3,7 @@ class Pattern {
   final static int circleC = 1;
   final static int wall = 2;
   final static int wallC = 3;
-  final static int max = 2;
+  final static int max = 3;
 
   ArrayList<Bullet> bullets;
 
@@ -40,8 +40,13 @@ class Pattern {
         bullets.add(new Bullet(x+c, y, 0, -speed, w));
         w+= singleWait;
       }
-    }
-    else if (type == wallC){
+    } else if (type == wallC) {
+      if (y == height/2 && x == 0) {
+        y = 0;
+      }
+      if (y == height/2 && x == width) {
+        y = height;
+      }
       for (int c = -width; c <= width; c+=(width/spread*3)) {
         bullets.add(new Bullet(x+c, y, 0, speed, w));
         w+= singleWait;
