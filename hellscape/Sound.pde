@@ -7,6 +7,7 @@ class Sound {
   AudioPlayer hard;
   AudioPlayer[] rand;
   AudioPlayer mystery;
+  AudioPlayer gameover;
   
   Sampler drip;
   Sampler hiss;
@@ -21,9 +22,9 @@ class Sound {
     hard = minim.loadFile("sound/Club Diver.mp3");
     rand = new AudioPlayer[1];
     rand[0] = minim.loadFile("sound/Ultra Polka.mp3");
-    rand[0].setGain(-20);
-    
+    rand[0].setGain(-15);
     mystery = minim.loadFile("sound/Disco Medusae.mp3"); // or maybe "Disco Lounge.mp3"
+    gameover = minim.loadFile("sound/Seven March.mp3");
     
     out = minim.getLineOut();
     
@@ -51,6 +52,8 @@ class Sound {
         hard.play();
       } else if (l == -99) {
         mystery.loop();
+      } else if (l == -2) {
+        gameover.loop();
       }
     }
   }
@@ -62,6 +65,7 @@ class Sound {
     for (int i=0; i<=rand.length-1; i++) {
       rand[i].pause();
     }
+    gameover.pause();
   }
   
   void drip() {

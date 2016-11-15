@@ -13,8 +13,10 @@ class Screen {
 
   void change(int current_) {
     current = current_;
-    if (current==0) {
+    if (current==start) {
       sound.play(0);
+    } else if (current == gameover) {
+      sound.play(-2);
     }
   }
 
@@ -107,6 +109,7 @@ class Screen {
         if (keys.ok) {
           avatar.reset();
           level.start(currentLevel);
+          sound.play(currentLevel);
           current = ingame;
         }
       }
