@@ -30,7 +30,7 @@ class Screen {
       if (currentLevel == -1){
         fill(0);
         textAlign(LEFT, CENTER);
-        text("score "+level.score, width/20, height/20);
+        text("score "+level.score, width/28, height-height/20);
         textAlign(CENTER, CENTER);
       }
     }

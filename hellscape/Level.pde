@@ -15,6 +15,22 @@ class Level {
       genRandom();
       lastRandom = millis();
     }
+    else if (diff == 1){
+      //pattern.generate(x, y, type, speed, wait, spread, singleWait)
+      int s = 2;
+      int w = millis();
+      pattern.generate(width/2, 0, 0, s, w, 50, 25);
+      pattern.generate(width/2, height, 0, s, w+3000, 50, 25);
+      pattern.generate(0, height/2, 1, s, w+6000, 50, 20);
+      pattern.generate(width, height/2, 1, s, w+9000, 50, 20);
+      pattern.generate(0, 0, 2, s, w+14000, 50, 30);
+      pattern.generate(0, height, 2, s, w+15000, 40, 30);
+      pattern.generate(0, 0, 0, s, w+18000, 50, 25);
+      pattern.generate(width, height, 1, s, w+18000, 50, 25);
+    }
+    else if (diff == 2){
+      
+    }
   }
   
   void stop() {
