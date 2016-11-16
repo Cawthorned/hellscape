@@ -5,6 +5,7 @@ class Level {
   int score = 0;
   int startTime = 0;
   int randomWeight[] = {0, 0, 1, 1, 2, 3};
+  int end = -1;
   
   Level() {
     pattern = new Pattern();
@@ -96,6 +97,8 @@ class Level {
       pattern.generate(width, 0, 0, s*2, w+143*b, 40, 20);
       pattern.generate(width, height, 0, s*2, w+143*b, 40, 20);
       pattern.generate(0, height, 0, s*2, w+143*b, 40, 20);
+      
+      end = w+159*b;
     }
     else if (diff == 2){
       
@@ -117,6 +120,13 @@ class Level {
         lastRandom = millis();
       }
       score = millis() - startTime;
+    } else {
+      if ((millis() > end) && (end != -1)) {
+        level.stop();
+        avatar.reset();
+        screen.change(Screen.victory);
+        end = -1;
+      }
     }
     pattern.tick();
   }
