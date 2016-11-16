@@ -33,7 +33,6 @@ void setup() {
   level = new Level();
   
   highscore = new Highscore();
-  highscore.save(2323);
 }
 
 void draw() {
