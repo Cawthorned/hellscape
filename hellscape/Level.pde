@@ -4,6 +4,7 @@ class Level {
   int lastRandom = -1;
   int score = 0;
   int startTime = 0;
+  int randomWeight[] = {0, 0, 1, 1, 2, 3};
   
   Level() {
     pattern = new Pattern();
@@ -125,7 +126,7 @@ class Level {
   }
   
   void genRandom() {
-    int type = floor(random(0, Pattern.max+1));
+    int type = randomWeight[floor(random(0, randomWeight.length))];
     int x = width/2;
     int y = height/2;
     while ((x == y) && ((x==width/2)||(y==height/2))) {
