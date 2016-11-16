@@ -11,6 +11,8 @@ Level level;
 PFont titleFont;
 PFont textFont;
 
+Highscore highscore;
+
 void setup() {
   size(720, 720);
   //fullScreen();
@@ -29,6 +31,9 @@ void setup() {
   avatar = new Avatar(3.2);
 
   level = new Level();
+  
+  highscore = new Highscore();
+  highscore.save(2323);
 }
 
 void draw() {

@@ -106,6 +106,11 @@ class Level {
   }
   
   void stop() {
+    if (lastRandom != -1) {
+      if (highscore.s < score) {
+        highscore.save(score);
+      }
+    }
     pattern.clear();
     randomTimer = -1;
     randomTimer = 1000;

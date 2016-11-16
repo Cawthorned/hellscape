@@ -178,7 +178,7 @@ class Screen {
       textFont(textFont);
       text("The poor little droplet evaporated, \ntogether with its hopes and dreams.", width/2, height/3-height/24);
       text("your score was: "+level.score, width/2, height/3+height/18);
-      text("current highscore is: " +124836, width/2, height-height/15);
+      text("current highscore is: " + highscore.s, width/2, height-height/15);
       text("try again", width/2-width/5, height/2-height/24, width/2.5, height/6);
       text("return to menu", width/2-width/5, height/2+height/5, width/2.5, height/6);
       noFill();
