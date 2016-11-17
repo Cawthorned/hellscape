@@ -109,7 +109,7 @@ class Level {
         }
       }
       
-      end = 500*110;
+      end = millis()+500*110;
     }
   }
   
