@@ -40,13 +40,13 @@ void draw() {
 
   background(0, 100, 200);
 
-  screen.display();
-
-  avatar.tick();
-  avatar.display();
-
   level.tick();
   level.display();
+  
+  screen.display();
+  
+  avatar.tick();
+  avatar.display();
 }
 
 void keyPressed() {
