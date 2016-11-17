@@ -101,7 +101,15 @@ class Level {
       end = w+159*b;
     }
     else if (diff == 2){
+      // not yet implemented.. therefore.. DIEDIEDIE!!!
+      for (int i = 0; i<=100; i++) {
+        for (int j = 0; j<=1; j++) {
+          pattern.generate(width/2, 0, j, 2, i*500, 30+(i%10), 40);
+          pattern.generate(width/2, height, j, 2, i*500, 30+(i%10), 40);
+        }
+      }
       
+      end = 500*110;
     }
   }
   
